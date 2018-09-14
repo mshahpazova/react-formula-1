@@ -29,9 +29,7 @@ export default class DriversList extends React.Component {
   
   getDrivers(){
      axios.get('http://ergast.com/api/f1/2018/driverStandings.json')
-      //  .then(response => { debugger })
-       
+      //  .then(response => { debugger })       
        .then(response => { this.setState({drivers: response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(item => item.Driver).map(driver => driver.driverId) }) });
   }
 }
-// const List = connect(mapStateToProps)(ConnectedList);

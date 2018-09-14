@@ -1,10 +1,13 @@
 import React from 'react';
 import DriversListComponent from '../js/components/drivers-list.component';
-import {Route, IndexRoute} from 'react-router';
 import App from '../../src/App'
+import {
+    HashRouter,
+    Route
+} from 'react-router-dom';
+
 export default (
-  // <IndexRoute component={WelcomePageContainer}/> 
-  <Route path="/" component={App}>
-    {/* <IndexRoute component={DriversListComponent}/> */}
-  </Route>
+  <HashRouter path="/" component={App}>
+    <Route exact path="/drivers" component={DriversListComponent}/>
+  </HashRouter>
 );

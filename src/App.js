@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import DriversListComponent from '../src/js/components/drivers-list.component';
+import TeamsList from '../src/js/components/teams-list.component';
+import DriversList from '../src/js/components/drivers-list.component';
+import CircuitsList from '../src/js/components/circuits-list.component';
+import { Link } from 'react-router-dom';
+const Navigation = () => {
+  return (
+    <div>
+      <p>Logo and Navigation</p>
+    </div>
+  )
+}
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-          <DriversListComponent />
-        </p>
+      <div>
+      <Navigation/>
+      <BrowserRouter> 
+        <Switch>
+          <Route exact path="/" component={DriversList}/>
+          <Route exact path="/teams" component={TeamsList}/>
+          <Route exact path="/circuits" component={CircuitsList}/>
+        </Switch>
+      </BrowserRouter>
       </div>
     );
   }
